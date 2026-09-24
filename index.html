@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratoires Careline — Soins formulés en laboratoire</title>
+<meta name="description" content="Laboratoires Careline conçoit des soins clairs, efficaces et accessibles, formulés en laboratoire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#6D3BB8;
+    --violet-dark:#54308F;
+    --bleu:#3975C6;
+    --vert:#45A36B;
+    --orange:#E58A35;
+    --jaune:#E8BD3E;
+    --rose:#C95B8E;
+    --cream:#F7F6F3;
+    --ink:#29282D;
+    --ink-soft:#5A5964;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Montserrat', sans-serif;
+    color:var(--ink);
+    margin:0;
+    line-height:1.15;
+  }
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow-free-spacer{height:0;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,246,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(41,40,45,0.08);
+  }
+  header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .brand img{height:34px;width:auto;}
+  nav{display:flex;align-items:center;gap:36px;}
+  nav a{
+    font-weight:600;font-size:15px;text-decoration:none;color:var(--ink);
+    opacity:0.75;transition:opacity .15s ease;
+  }
+  nav a:hover{opacity:1;}
+  .btn{
+    display:inline-block;
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:600;font-size:15px;
+    padding:12px 24px;border-radius:100px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--violet);color:#fff;}
+  .btn-primary:hover{background:var(--violet-dark);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:rgba(41,40,45,0.18);}
+  .btn-ghost:hover{border-color:var(--ink);}
+  .nav-toggle{display:none;}
+  #nav-check{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:96px 0 120px;}
+  .hero .wrap{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(36px,4.6vw,54px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    max-width:15ch;
+  }
+  .hero p.lead{
+    margin-top:22px;max-width:44ch;
+    font-size:19px;color:var(--ink-soft);
+  }
+  .hero .cta-row{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+
+  .shape-field{
+    position:relative;aspect-ratio:1/0.92;
+  }
+  .shape{position:absolute;border-radius:50%;}
+  .shape.s1{width:62%;height:62%;top:2%;right:4%;background:var(--violet);}
+  .shape.s2{
+    width:44%;height:44%;left:2%;bottom:20%;
+    background:var(--bleu);
+    border-radius:50% 50% 50% 4%;
+  }
+  .shape.s3{width:30%;height:30%;left:18%;top:4%;background:var(--jaune);}
+  .shape.s4{width:26%;height:26%;right:10%;bottom:4%;background:var(--vert);}
+  .shape.s5{width:18%;height:18%;left:42%;bottom:2%;background:var(--rose);}
+
+  /* ---------- Sections generic ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:60ch;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(26px,3vw,34px);font-weight:700;}
+  .section-head p{margin-top:14px;color:var(--ink-soft);font-size:17px;}
+
+  /* ---------- À propos ---------- */
+  .about{background:#fff;}
+  .about .wrap{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;
+  }
+  .about-visual{
+    background:var(--cream);
+    border-radius:var(--radius-lg);
+    padding:48px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-visual .ring{
+    width:100%;aspect-ratio:1;border-radius:50%;
+    background:conic-gradient(var(--bleu) 0 20%, var(--vert) 20% 40%, var(--jaune) 40% 58%, var(--rose) 58% 78%, var(--orange) 78% 100%);
+    display:flex;align-items:center;justify-content:center;
+    padding:14px;
+  }
+  .about-visual .ring-core{
+    width:100%;height:100%;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:12px;
+  }
+  .about-visual .ring-core strong{
+    font-family:'Montserrat',sans-serif;font-size:15px;color:var(--violet);
+    display:block;max-width:12ch;line-height:1.3;
+  }
+  .about-copy h2{font-size:clamp(26px,3vw,34px);font-weight:700;}
+  .about-copy p{margin-top:20px;color:var(--ink-soft);font-size:17px;max-width:52ch;}
+
+  /* ---------- Gammes ---------- */
+  .gammes{background:var(--cream);}
+  .gammes-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
+  }
+  .gamme-card{
+    border-radius:var(--radius-md);
+    padding:30px 26px;
+    min-height:210px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    color:#fff;
+  }
+  .gamme-card h3{font-size:20px;font-weight:700;color:#fff;}
+  .gamme-card p{margin-top:12px;font-size:15px;line-height:1.55;color:rgba(255,255,255,0.92);}
+  .gamme-card .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,0.35);
+  }
+  .g-visage{background:var(--bleu);}
+  .g-corps{background:var(--vert);}
+  .g-cheveux{background:var(--jaune);}
+  .g-cheveux h3, .g-cheveux p{color:var(--ink);}
+  .g-cheveux p{color:rgba(41,40,45,0.75);}
+  .g-cheveux .mark{background:rgba(41,40,45,0.18);}
+  .g-solaire{background:var(--orange);}
+  .g-sensible{background:var(--rose);}
+
+  /* ---------- Engagements ---------- */
+  .engagements{background:var(--ink);color:#fff;}
+  .engagements .section-head h2{color:#fff;}
+  .engagements .section-head p{color:rgba(255,255,255,0.65);}
+  .eng-list{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:36px;
+  }
+  .eng-item h3{
+    font-size:18px;font-weight:700;color:#fff;
+    padding-bottom:14px;margin-bottom:12px;
+    border-bottom:2px solid var(--violet);
+  }
+  .eng-item p{font-size:15px;color:rgba(255,255,255,0.68);}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--violet);color:#fff;text-align:center;}
+  .contact h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;color:#fff;max-width:20ch;margin:0 auto;}
+  .contact p{margin-top:16px;font-size:18px;color:rgba(255,255,255,0.85);}
+  .contact .btn-primary{
+    background:#fff;color:var(--violet);margin-top:30px;
+    font-size:16px;padding:14px 30px;
+  }
+  .contact .btn-primary:hover{background:var(--cream);}
+
+  /* ---------- Footer ---------- */
+  footer{background:#fff;border-top:1px solid rgba(41,40,45,0.08);}
+  footer .wrap{
+    padding:32px;display:flex;align-items:center;justify-content:space-between;
+    gap:20px;flex-wrap:wrap;
+  }
+  footer .fmark{display:flex;align-items:center;gap:10px;}
+  footer .fmark img{height:22px;width:auto;}
+  footer .fmark span{font-size:14px;color:var(--ink-soft);}
+  footer .flinks{display:flex;gap:24px;}
+  footer .flinks a{font-size:14px;color:var(--ink-soft);text-decoration:none;}
+  footer .flinks a:hover{color:var(--ink);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;gap:48px;}
+    .hero{padding:64px 0 80px;}
+    .shape-field{max-width:340px;margin:0 auto;}
+    .about .wrap{grid-template-columns:1fr;gap:40px;}
+    .about-visual{max-width:320px;margin:0 auto;}
+    section{padding:64px 0;}
+    nav{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--cream);
+      flex-direction:column;align-items:flex-start;
+      padding:20px 32px 28px;gap:18px;
+      border-bottom:1px solid rgba(41,40,45,0.08);
+      display:none;
+    }
+    #nav-check:checked ~ nav{display:flex;}
+    .nav-toggle{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:42px;border-radius:50%;
+      border:1px solid rgba(41,40,45,0.18);
+      cursor:pointer;
+    }
+    .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+      content:'';display:block;width:18px;height:2px;background:var(--ink);
+      position:relative;
+    }
+    .nav-toggle span::before{position:absolute;top:-6px;}
+    .nav-toggle span::after{position:absolute;top:6px;}
+    .header-actions{display:flex;align-items:center;gap:12px;}
+    header .brand + nav .btn{margin-top:8px;}
+  }
+  @media (min-width:861px){
+    .nav-toggle{display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Laboratoires Careline — accueil">
+      <img src="banniere.png" alt="Laboratoires Careline">
+    </a>
+    <input type="checkbox" id="nav-check">
+    <div class="header-actions">
+      <a class="btn btn-primary" href="#contact">Nous contacter</a>
+      <label class="nav-toggle" for="nav-check" aria-label="Ouvrir le menu"><span></span></label>
+    </div>
+    <nav>
+      <a href="#apropos">Le laboratoire</a>
+      <a href="#gammes">Nos gammes</a>
+      <a href="#engagements">Nos engagements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Des soins de laboratoire, pensés pour la vraie vie.</h1>
+        <p class="lead">Laboratoires Careline formule des soins clairs, efficaces et accessibles, conçus avec des ingrédients choisis avec soin et des routines simples à suivre.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#gammes">Découvrir nos gammes</a>
+          <a class="btn btn-ghost" href="#apropos">Le laboratoire</a>
+        </div>
+      </div>
+      <div class="shape-field" aria-hidden="true">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+        <div class="shape s5"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="apropos">
+    <div class="wrap">
+      <div class="about-visual">
+        <div class="ring">
+          <div class="ring-core"><strong>Formulé en laboratoire</strong></div>
+        </div>
+      </div>
+      <div class="about-copy">
+        <h2>Notre laboratoire</h2>
+        <p>Nous formulons chaque soin avec des ingrédients sélectionnés pour leur efficacité et leur tolérance. Pas de promesses en l'air : des formules lisibles, des résultats mesurables et une routine simple à suivre au quotidien.</p>
+        <p>Chaque gamme est pensée pour un besoin précis, avec le même niveau d'exigence du premier au dernier produit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gammes" id="gammes">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Nos gammes de soins</h2>
+        <p>Cinq gammes, chacune pensée pour un besoin précis, avec des formules simples à intégrer au quotidien.</p>
+      </div>
+      <div class="gammes-grid">
+        <div class="gamme-card g-visage">
+          <div class="mark"></div>
+          <div><h3>Visage</h3><p>Nettoyants, sérums et crèmes pour une routine visage simple et efficace.</p></div>
+        </div>
+        <div class="gamme-card g-corps">
+          <div class="mark"></div>
+          <div><h3>Corps</h3><p>Soins hydratants et nourrissants pour préserver la barrière cutanée.</p></div>
+        </div>
+        <div class="gamme-card g-cheveux">
+          <div class="mark"></div>
+          <div><h3>Cheveux</h3><p>Shampoings et soins capillaires adaptés à chaque type de cheveu.</p></div>
+        </div>
+        <div class="gamme-card g-solaire">
+          <div class="mark"></div>
+          <div><h3>Solaire</h3><p>Protection quotidienne, formulée pour un usage régulier sans effet gras.</p></div>
+        </div>
+        <div class="gamme-card g-sensible">
+          <div class="mark"></div>
+          <div><h3>Peaux sensibles</h3><p>Formules minimalistes, pensées pour les peaux réactives et les plus jeunes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="engagements" id="engagements">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Nos engagements</h2>
+        <p>Les principes qui encadrent chaque formule, du premier essai à la mise en rayon.</p>
+      </div>
+      <div class="eng-list">
+        <div class="eng-item">
+          <h3>Clarté</h3>
+          <p>Des listes d'ingrédients lisibles, sans jargon marketing.</p>
+        </div>
+        <div class="eng-item">
+          <h3>Efficacité</h3>
+          <p>Des formules évaluées avant leur mise sur le marché.</p>
+        </div>
+        <div class="eng-item">
+          <h3>Simplicité</h3>
+          <p>Des routines courtes, pensées pour durer dans le temps.</p>
+        </div>
+        <div class="eng-item">
+          <h3>Cohérence</h3>
+          <p>Les mêmes standards de qualité sur toute la gamme.</p>
+        </div>
+        <div class="eng-item">
+          <h3>Proximité</h3>
+          <p>Une équipe disponible pour répondre à vos questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Une question sur nos soins ?</h2>
+      <p>Notre équipe vous répond directement par e-mail.</p>
+      <a class="btn btn-primary" href="mailto:contact@laboratoires-careline.fr">contact@laboratoires-careline.fr</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark">
+      <img src="logo.png" alt="">
+      <span>© 2026 Laboratoires Careline. Tous droits réservés.</span>
+    </div>
+    <div class="flinks">
+      <a href="#apropos">Le laboratoire</a>
+      <a href="#gammes">Nos gammes</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
