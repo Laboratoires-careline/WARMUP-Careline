@@ -12,5 +12,5 @@ jobs:
           server: ftp.cluster129.hosting.ovh.net
           username: laborck
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps-legacy
+          protocol: ftp
           server-dir: /www/
