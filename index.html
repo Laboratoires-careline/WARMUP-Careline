@@ -5,9 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Laboratoires Careline — Produits paramédicaux de confort et de rééducation</title>
 <meta name="description" content="Les Laboratoires Careline conçoivent, fabriquent et distribuent des produits paramédicaux de confort et de rééducation pour les professionnels de santé, les établissements médicaux et les particuliers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+
+<!-- Canonical : remplace par ton nom de domaine définitif (OVH) -->
+<link rel="canonical" href="https://www.laboratoires-careline.fr/">
+
+<!-- Open Graph / partage social : adapte le domaine ci-dessous -->
+<meta property="og:title" content="Laboratoires Careline — Produits paramédicaux de confort et de rééducation">
+<meta property="og:description" content="Conception, fabrication et distribution de dispositifs paramédicaux pour les professionnels de santé, établissements médicaux et particuliers.">
+<meta property="og:image" content="https://www.laboratoires-careline.fr/banniere.png">
+<meta property="og:url" content="https://www.laboratoires-careline.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Polices en local (RGPD) : plus aucune requête vers fonts.googleapis.com -->
+<link href="fonts/fonts.css" rel="stylesheet">
+
 <style>
   :root{
     --violet:#6D3BB8;
@@ -41,9 +56,20 @@
     line-height:1.15;
   }
   a{color:inherit;}
-  img{display:block;max-width:100%;}
+  img{display:block;max-width:100%;height:auto;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-  .eyebrow-free-spacer{height:0;}
+
+  /* Lien d'évitement (accessibilité clavier) */
+  .skip-link{
+    position:absolute;left:-999px;top:auto;
+    background:var(--violet);color:#fff;
+    padding:10px 18px;border-radius:8px;
+    font-family:'Source Sans 3',sans-serif;font-weight:600;
+    z-index:100;
+  }
+  .skip-link:focus{
+    left:16px;top:16px;
+  }
 
   /* ---------- Header ---------- */
   header{
@@ -207,7 +233,7 @@
   footer .fmark{display:flex;align-items:center;gap:10px;}
   footer .fmark img{height:22px;width:auto;}
   footer .fmark span{font-size:14px;color:var(--ink-soft);}
-  footer .flinks{display:flex;gap:24px;}
+  footer .flinks{display:flex;gap:24px;flex-wrap:wrap;}
   footer .flinks a{font-size:14px;color:var(--ink-soft);text-decoration:none;}
   footer .flinks a:hover{color:var(--ink);}
 
@@ -254,15 +280,17 @@
 </head>
 <body>
 
+<a href="#top" class="skip-link">Aller au contenu principal</a>
+
 <header>
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Laboratoires Careline — accueil">
-      <img src="banniere.png" alt="Laboratoires Careline">
+      <img src="banniere.png" alt="Laboratoires Careline" width="180" height="34">
     </a>
     <input type="checkbox" id="nav-check">
     <div class="header-actions">
       <a class="btn btn-primary" href="#contact">Nous contacter</a>
-      <label class="nav-toggle" for="nav-check" aria-label="Ouvrir le menu"><span></span></label>
+      <label class="nav-toggle" for="nav-check" aria-label="Ouvrir le menu" role="button" aria-expanded="false"><span></span></label>
     </div>
     <nav>
       <a href="#apropos">L'entreprise</a>
@@ -385,13 +413,15 @@
 <footer>
   <div class="wrap">
     <div class="fmark">
-      <img src="logo.png" alt="">
+      <img src="logo.png" alt="Laboratoires Careline" width="88" height="22">
       <span>© 2026 Laboratoires Careline. Tous droits réservés.</span>
     </div>
     <div class="flinks">
       <a href="#apropos">L'entreprise</a>
       <a href="#gammes">Nos produits</a>
       <a href="#contact">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
     </div>
   </div>
 </footer>
